@@ -1,0 +1,121 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I don't know how to start solving this mission
+    </div>
+    <div class="answer">
+        The task is to find elements in the line that contain only numbers, without letters, and return
+        the sum of these numbers.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need help to continue the mission
+    </div>
+    <div class="answer">
+        To solve the mission, we will use the list generator.
+         It will be useful for you to read some information about:
+        <a href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a>
+        (<a href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a> ),
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split'>str.split()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_split.asp'>example</a> ), and
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=isdigit#str.isdigit'>str.isdigit()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a> ),
+        <a href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>,
+        (<a href='https://www.w3schools.com/python/ref_func_int.asp'>example</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Need help!
+    </div>
+    <div class="answer">
+        So, let's write down what exactly should be in our list generator expression. In the for loop,
+        we will iterate over the string split into a list using the str.split() method.
+        <pre class="brush: python">
+result = []  # This is where our result of the cycle will be stored
+for i in text.split():
+        # abracadabra
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I don't know what to do anymore. I need a little hint.
+    </div>
+    <div class="answer">
+        You need to add a check to see if the string element is a number or not.
+        <pre class="brush: python">
+result = []
+for i in text.split():
+        if i.isdigit():
+            # abracadabra
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nothing works. SOS
+    </div>
+    <div class="answer">
+        So, if the check is successful, we add the string element to the list, having previously converted it to the
+        "integer" data type using the int() function.
+        <pre class="brush: python">
+result = []
+for i in text.split():
+        if i.isdigit():
+            result.append(int(i))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I don't want to give up, help!
+    </div>
+    <div class="answer">
+        All you have to do is wrap the code in a function expression and return the result. You can simply add our
+        "result" variable to the sum() function in the "return" expression. Or you can move away from the variable
+        and wrap it in a list comprehension.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(int(i) for i in text.split() if i.isdigit())
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! That's the spirit!=)
+       Here is a solution using the sum() function and using the map() and filter() functions instead of the list
+        generator. Using filter(), we check whether the string element is a number.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    return sum(map(int, filter(str.isdigit, text.split())))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want more!
+    </div>
+    <div class="answer">
+        Instead of an if condition, we can use a "try/except" expression. If converting a string to a number (int(i))
+        fails, we simply skip this step and move on to another element of the string.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    result = []
+    for i in text.split():
+        try:
+            result.append(int(i))
+        except:
+            pass
+    return sum(result)
+        </pre>
+    </div>
+</div>
+
+
+</body>
