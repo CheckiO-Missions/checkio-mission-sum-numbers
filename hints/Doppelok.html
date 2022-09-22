@@ -17,9 +17,9 @@
          It will be useful for you to read some information about:
         <a href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a>
         (<a href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a> ),
-        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split'>str.split()</a>
+        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a>
         (<a href='https://www.w3schools.com/python/ref_string_split.asp'>example</a> ), and
-        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=isdigit#str.isdigit'>str.isdigit()</a>
+        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a>
         (<a href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a> ),
         <a href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>,
         (<a href='https://www.w3schools.com/python/ref_func_int.asp'>example</a> ).
@@ -74,7 +74,16 @@ for i in text.split():
     </div>
     <div class="answer">
         All you have to do is wrap the code in a function expression and return the result. You can simply add our
-        "result" variable to the sum() function in the "return" expression. Or you can move away from the variable
+        "result" variable to the sum() function in the "return" expression.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    result = []
+    for i in text.split():
+            if i.isdigit():
+                result.append(int(i))
+    return sum(result)
+        </pre>
+        Or you can move away from the variable
         and wrap it in a list comprehension.
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
@@ -89,8 +98,8 @@ def sum_numbers(text: str) -> int:
     </div>
     <div class="answer">
         Okay, okay! That's the spirit!=)
-       Here is a solution using the sum() function and using the map() and filter() functions instead of the list
-        generator. Using filter(), we check whether the string element is a number.
+        Here is a solution using the sum() function and using the map() and filter() functions instead of the list generator.
+        In the filter() function, using the str.isdigit() method, we check whether the string element is a number.
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
     return sum(map(int, filter(str.isdigit, text.split())))
@@ -114,6 +123,17 @@ def sum_numbers(text: str) -> int:
             pass
     return sum(result)
         </pre>
+        </pre>
+        Or you can modify the code immediately using an int variable, without a list.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    result = 0
+    for i in text.split():
+        try:
+            result += int(i)
+        except:
+            pass
+    return result
     </div>
 </div>
 

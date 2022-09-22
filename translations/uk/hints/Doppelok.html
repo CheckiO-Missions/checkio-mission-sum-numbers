@@ -4,7 +4,7 @@
         Я не знаю, як розпочати вирішення цієї місії
     </div>
     <div class="answer">
-        Задача в тому, щоб знайти в рядку елементи які містять тільки цифри, без літер, та поверни суму цих чисел.
+        Задача в тому, щоб знайти в рядку елементи які містять тільки цифри, без літер, та повернути суму цих чисел.
     </div>
 </div>
 <div class="question-answer">
@@ -16,9 +16,9 @@
         Тобі буде корисно прочитати трохи інформації про:
         <a href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>генератор списку</a>
         (<a href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>приклад</a> ),
-        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split'>str.split()</a>
+        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a>
         (<a href='https://www.w3schools.com/python/ref_string_split.asp'>приклад</a> ), та
-        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=isdigit#str.isdigit'>str.isdigit()</a>
+        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a>
         (<a href='https://www.w3schools.com/python/ref_string_isdigit.asp'>приклад</a> ),
         <a href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>,
         (<a href='https://www.w3schools.com/python/ref_func_int.asp'>приклад</a> ).
@@ -72,8 +72,17 @@ for i in text.split():
         Не хочу здаватись, допоможи!
     </div>
     <div class="answer">
-        Тобі залишилось обгорнути код у вираз функції та повернути результат. Можна просто у виразі "return" до функції
-        sum() нашу змінну result. Або ж можна відійти від змінної та обгорнути це у вираз генератору списків.
+        Тобі залишилось обгорнути код у вираз функції та повернути результат. Можна просто у виразі "return" передати до функції
+        sum() нашу змінну result.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    result = []
+    for i in text.split():
+            if i.isdigit():
+                result.append(int(i))
+    return sum(result)
+        </pre>
+        Або ж можна відійти від змінної та обгорнути це у вираз генератору списків.
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
@@ -88,7 +97,7 @@ def sum_numbers(text: str) -> int:
     <div class="answer">
         Добре, добре! Оце настрій!=)
         Ось рішення з використанням функції sum() та замість генератора списку використовують функцію map() та filter().
-        За допомогою filter() перевіряємо на те чи елемент рядку число.
+        У функції filter(), за допомогою методу str.isdigit() перевіряємо на те чи елемент рядку число.
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
     return sum(map(int, filter(str.isdigit, text.split())))
@@ -111,6 +120,17 @@ def sum_numbers(text: str) -> int:
         except:
             pass
     return sum(result)
+        </pre>
+        Або ж можна модифікувати код одразу з використанням змінної типу int, без списку.
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+    result = 0
+    for i in text.split():
+        try:
+            result += int(i)
+        except:
+            pass
+    return result
         </pre>
     </div>
 </div>
