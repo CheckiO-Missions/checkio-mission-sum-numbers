@@ -86,6 +86,7 @@ for i in text.split():
         <p>
             All you have to do is wrap the code in a function expression and return the result. You can simply add our <b class="code">result</b> variable to the <b class="code">sum()</b> function in the <b class="code">return</b> expression.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
@@ -95,14 +96,17 @@ def sum_numbers(text: str) -> int:
             result.append(int(i))
     return sum(result)
         </pre>
+        </div>
         <p>
             Or you can move away from the variable and wrap it in a list comprehension.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
     return sum(int(i) for i in text.split() if i.isdigit())
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -116,11 +120,13 @@ def sum_numbers(text: str) -> int:
             Okay, okay! That's the spirit!=)</br>
             Here is a solution using the <b class="code">sum()</b> function and using the <b class="code">map()</b> and <b class="code">filter()</b> functions instead of the list generator. In the <b class="code">filter()</b> function, using the <b class="code">str.isdigit()</b> method, we check whether the string element is a number.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
     return sum(map(int, filter(str.isdigit, text.split())))
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -133,6 +139,7 @@ def sum_numbers(text: str) -> int:
         <p>
             Instead of an <b class="code">if</b> condition, we can use a <b class="code">try/except</b> expression. If converting a string to a number <b class="code">int(i)</b> fails, we simply skip this step and move on to another element of the string.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
@@ -144,10 +151,11 @@ def sum_numbers(text: str) -> int:
             pass
     return sum(result)
         </pre>
-        </pre>
+        </div>
         <p>
             Or you can modify the code immediately using an <b class="code">int</b> variable, without a list.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
@@ -158,6 +166,8 @@ def sum_numbers(text: str) -> int:
         except:
             pass
     return result
+        </pre>
+        </div>
     </div>
 </div>
 </body>
