@@ -88,6 +88,7 @@ res += num
             You just need to wrap your code into function expression and join all previous hints.
         </p>
         <p>Here is the whole solution:</p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function sumNumbers(text: string): number {
     
@@ -100,6 +101,7 @@ function sumNumbers(text: string): number {
     return res
 }
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -112,21 +114,25 @@ function sumNumbers(text: string): number {
         <p>
             Create an array from the initial text with digit blocks only using regular expression, then start from <b class="code">0</b>, convert each block into number with <b class="code">+</b> and find the sum.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function sumNumbers(t: string): number {
 
     return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
 }
         </pre>
+        </div>
         <p>
             This solution may be written in one line, but to make it more narrow then wide, every method is written from the new line. Split the text, filter only valid numbers and reduce them with the sum function converting each string into number. The anonymous function is also used here.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var sumNumbers = (test: string): number => test
     .split(' ')
     .filter(Number)
     .reduce((a, i) => a + Number(i), 0);
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>
