@@ -1,0 +1,141 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>I have no idea how to start solving this mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 The idea is to split the given text by whitespace into words and convert each of them into number. If the conversion is correct - add this number to the result.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, what should I start from?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Declare a new variable <b class="code">res</b> with the initial value of <b class="code">0</b>. It's your sum of correct numbers, which your function should return.
+        </p>
+        <pre class="brush: javascript">
+let res = 0;
+...
+return res
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, what to do next?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Use <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">split()</a> method with whitespace argument to split the text by words and <a target="_blank" href="https://www.w3schools.com/js/js_loop_forof.asp">for/of loop</a> to iterate over these words as values of <b class="code">str</b> variable.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){...}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            I need a small hint.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            You have words as string. Now inside loop you need to convert each of them into number with <a target="_blank" href="https://www.w3schools.com/jsref/jsref_number.asp">Number()</a> method and assign to a new variable <b class="code">num</b>.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){
+    let num = Number(str);
+    ...
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            How to check, if the conversion is correct?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Here is a little tricky logic. Let's think from the opposite. <b class="code">num</b> have to be a number, so we may say, it can NOT be <b class="code">NaN</b> (not a number). To make such checking, you need <a target="_blank" href="https://www.w3schools.com/jsref/jsref_isnan.asp">isNaN()</a> method (return <b class="code">true</b> if the value is not a number) and <b class="code">!</b> (not) operator to invert method result.
+        </p>
+        <pre class="brush: javascript">
+if (!isNaN(num))
+    ...
+        </pre>
+        <p>
+            If the checking is <b class="code">true</b> - add the number <b class="code">num</b> to the result <b class="code">res</b>.
+        </p>
+        <pre class="brush: javascript">
+res += num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>So, how my final solution should look like?</p>
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression and join all previous hints.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: javascript">
+function sumNumbers(text: string): number {
+    
+    let res = 0;
+    for (let str of text.split(" ")){
+        let num = Number(str);
+        if (!isNaN(num))
+            res += num
+    }   
+    return res
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!</p>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            Create an array from the initial text with digit blocks only using regular expression, then start from <b class="code">0</b>, convert each block into number with <b class="code">+</b> and find the sum.
+        </p>
+        <pre class="brush: javascript">
+function sumNumbers(t: string): number {
+
+    return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
+}
+        </pre>
+        <p>
+            This solution may be written in one line, but to make it more narrow then wide, every method is written from the new line. Split the text, filter only valid numbers and reduce them with the sum function converting each string into number. The anonymous function is also used here.
+        </p>
+        <pre class="brush: javascript">
+var sumNumbers = (test: string): number => test
+    .split(' ')
+    .filter(Number)
+    .reduce((a, i) => a + Number(i), 0);
+        </pre>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Thanks! I know and understand more now! Everything works fine!</p>
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>
