@@ -1,0 +1,173 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je ne sais pas comment commencer à résoudre cette mission.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            La tâche consiste à trouver des éléments dans la ligne qui ne contiennent que des nombres, sans lettres, et à retourner la somme de ces nombres.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'ai besoin d'aide pour poursuivre la mission.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour résoudre la mission, nous utiliserons le générateur de listes. Il vous sera utile de lire quelques informations sur: <a target="_blank" href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a> (<a target="_blank" href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_split.asp'>example</a>), et <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>, (<a target="_blank" href='https://www.w3schools.com/python/ref_func_int.asp'>example</a>).
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Besoin d'aide!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Alors, écrivons ce qui doit être exactement dans notre expression de générateur de liste. Dans la boucle <b class="code">for</b>, nous allons itérer sur la chaîne de caractères divisée en une liste à l'aide de la méthode <b class="code">str.split()</b>.
+        </p>
+        <pre class="brush: python">
+result = []  # This is where our result of the cycle will be stored
+for i in text.split():
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je ne sais plus quoi faire. J'ai besoin d'un petit conseil.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Vous devez ajouter une vérification pour voir si l'élément de la chaîne est un nombre ou non.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Rien ne fonctionne. SOS
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Si la vérification est concluante, nous ajoutons la chaîne de caractères à la liste, après l'avoir convertie au type de données "entier" à l'aide de la fonction <b class="code">int()</b>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        result.append(int(i))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je ne veux pas abandonner, aidez-moi!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Tout ce que vous avez à faire est d'envelopper le code dans une expression de fonction et de renvoyer le résultat. Vous pouvez simplement ajouter notre variable de <b class="code">résultat</b> à la fonction <b class="code">sum()</b> dans l'expression de <b class="code">retour</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        if i.isdigit():
+            result.append(int(i))
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            Vous pouvez également vous éloigner de la variable et l'inclure dans une compréhension de liste.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(int(i) for i in text.split() if i.isdigit())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je veux être le meilleur des meilleurs PROGRAMMEURS!!! MONTREZ-MOI PLUS DE SOLUTIONS!!1!!!11!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            D'accord, d'accord! C'est l'esprit!=)</br>
+            Voici une solution qui utilise la fonction <b class="code">sum()</b> et les fonctions <b class="code">map()</b> et <b class="code">filter()</b> au lieu du générateur de liste. Dans la fonction <b class="code">filter()</b>, en utilisant la méthode <b class="code">str.isdigit()</b>, nous vérifions si l'élément de la chaîne est un nombre.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(map(int, filter(str.isdigit, text.split())))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'en veux plus!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Au lieu d'une condition <b class="code">if</b>, nous pouvons utiliser une expression <b class="code">try/except</b>. Si la conversion d'une chaîne de caractères en un nombre <b class="code">int(i)</b> échoue, nous sautons simplement cette étape et passons à un autre élément de la chaîne.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        try:
+            result.append(int(i))
+        except:
+            pass
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            Vous pouvez également modifier le code immédiatement en utilisant une variable <b class="code">int</b>, sans liste.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = 0
+    for i in text.split():
+        try:
+            result += int(i)
+        except:
+            pass
+    return result
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
