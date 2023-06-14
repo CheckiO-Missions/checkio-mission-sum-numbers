@@ -8,11 +8,11 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> A <span translate="repeat">string</span>.
+    <strong>Input:</strong> A string <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span>.
 </p>
 
 <p>
-    <strong>Output:</strong> {% if is_js %}A <span translate="repeat">number</span>{% else %}An <span translate="repeat">integer</span>{% endif %}. 
+    <strong>Output:</strong> An integer <span translate="no">{% if is_js %}(number){% else %}(int){% endif %}</span>. 
 </p>
 
 
