@@ -1,25 +1,25 @@
 <!-- Describe task in general -->
 
 <p>
-    Twoim zadaniem jest wyznaczenie sumy liczb występujących w tekście. Weź pod uwagę tylko oddzielone liczby - liczby połączone ze słowami nie powinny być sumowane.
+    W danym tekście należy zsumować liczby, wykluczając cyfry stanowiące część słowa.
 </p>
 
-<p>Tekst składa się z liczb, spacji i słów w języku angielskim.</p>
+<p>Tekst składa się z liczb, spacji i liter alfabetu angielskiego.</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Wejście: </strong> Ciąg znaków (string).
+   <strong>Dane wejściowe:</strong> Ciąg znaków <span>{% if is_js %}(string){% else %}(str){% endif %}</span>.
 </p>
 
 <p>
-    <strong>Wyjście: </strong> Liczba całkowita (integer).
+   <strong>Wyjście:</strong> Liczba całkowita <span>{% if is_js %}(number){% else %}(int){% endif %}</span>. 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Przykład:</strong>
+        <strong>Przykłady:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>

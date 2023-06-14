@@ -1,0 +1,173 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nie wiem, jak zacząć rozwiązywać tę misję.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Zadanie polega na znalezieniu w wierszu elementów zawierających tylko liczby, bez liter, i zwróceniu sumy tych liczb.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Potrzebuję pomocy, aby kontynuować misję.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Aby rozwiązać misję, użyjemy generatora list. Przydatne będzie zapoznanie się z informacjami na temat: <a target="_blank" href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a> (<a target="_blank" href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_split.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>, (<a target="_blank" href='https://www.w3schools.com/python/ref_func_int.asp'>example</a>).
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Proszę o pomoc!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Zapiszmy więc, co dokładnie powinno znaleźć się w naszym wyrażeniu generatora listy. W pętli <b class="code">for</b> będziemy iterować po łańcuchu podzielonym na listę przy użyciu metody <b class="code">str.split()</b>.
+        </p>
+        <pre class="brush: python">
+result = []  # This is where our result of the cycle will be stored
+for i in text.split():
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nie wiem już, co robić. Potrzebuję małej podpowiedzi.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Musi Pan dodać sprawdzanie, czy element string jest liczbą, czy nie.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nic nie działa. SOS
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Tak więc, jeśli sprawdzenie się powiedzie, dodajemy element string do listy, po uprzednim przekonwertowaniu go na typ danych "integer" za pomocą funkcji <b class="code">int()</b>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        result.append(int(i))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nie chcę się poddawać, proszę o pomoc!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Wszystko, co musi Pan zrobić, to zawinąć kod w wyrażenie funkcji i zwrócić wynik. Może Pan po prostu dodać naszą zmienną <b class="code">result</b> do funkcji <b class="code">sum()</b> w wyrażeniu <b class="code">return</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        if i.isdigit():
+            result.append(int(i))
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            Można też odejść od zmiennej i zawinąć ją w zrozumienie listy.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(int(i) for i in text.split() if i.isdigit())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Chcę być najlepszym z najlepszych PROGRAMISTÓW!!! PROSZĘ POKAZAĆ MI WIĘCEJ ROZWIĄZAŃ!!!1!!!11!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Dobra, dobra! That's the spirit!=)</br>
+            Oto rozwiązanie wykorzystujące funkcję <b class="code">sum()</b> i używające funkcji <b class="code">map()</b> i <b class="code">filter()</b> zamiast generatora listy. W funkcji <b class="code">filter()</b> za pomocą metody <b class="code">str.isdigit()</b> sprawdzamy, czy element ciągu jest liczbą.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(map(int, filter(str.isdigit, text.split())))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Chcę więcej!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Zamiast warunku <b class="code">if</b> możemy użyć wyrażenia <b class="code">try/except</b>. Jeśli konwersja ciągu na liczbę <b class="code">int(i)</b> nie powiedzie się, po prostu pomijamy ten krok i przechodzimy do kolejnego elementu ciągu.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        try:
+            result.append(int(i))
+        except:
+            pass
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            Można też od razu zmodyfikować kod, używając zmiennej <b class="code">int</b>, bez listy.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = 0
+    for i in text.split():
+        try:
+            result += int(i)
+        except:
+            pass
+    return result
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
