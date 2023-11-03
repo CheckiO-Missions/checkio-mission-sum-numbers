@@ -1,0 +1,147 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Die Idee ist, den gegebenen Text durch Leerzeichen in Wörter aufzuteilen und jedes davon in eine Zahl umzuwandeln. Wenn die Umwandlung korrekt ist - fügen Sie diese Zahl zum Ergebnis hinzu.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, womit soll ich anfangen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Deklarieren Sie eine neue Variable <b class="code">res</b> mit dem Anfangswert <b class="code">0</b>. Das ist Ihre Summe der richtigen Zahlen, die Ihre Funktion zurückgeben soll.
+        </p>
+        <pre class="brush: javascript">
+let res = 0;
+...
+return res
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, was ist als nächstes zu tun?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Verwenden Sie die Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">split()</a> mit dem Argument Leerzeichen, um den Text nach Wörtern aufzuteilen und <a target="_blank" href="https://www.w3schools.com/js/js_loop_forof.asp">for/of loop</a>, um über diese Wörter als Werte der Variablen <b class="code">str</b> zu iterieren.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){...}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich brauche einen kleinen Hinweis.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie haben Wörter als String. Innerhalb der Schleife müssen Sie nun jedes dieser Wörter mit der Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_number.asp">Number()</a> in eine Zahl umwandeln und einer neuen Variablen <b class="code">num</b> zuweisen.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){
+    let num = Number(str);
+    ...
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wie können Sie überprüfen, ob die Umwandlung korrekt ist?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Hier gibt es eine etwas knifflige Logik. Gehen wir vom Gegenteil aus. <b class="code">num</b> muss eine Zahl sein, wir können also sagen, dass es NICHT <b class="code">NaN</b> (keine Zahl) sein kann. Für eine solche Überprüfung benötigen Sie die Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_isnan.asp">isNaN()</a> (die <b class="code">true</b> zurückgibt, wenn der Wert keine Zahl ist) und den Operator <b class="code">!</b> (not), um das Ergebnis der Methode zu invertieren.
+        </p>
+        <pre class="brush: javascript">
+if (!isNaN(num))
+    ...
+        </pre>
+        <p>
+            Wenn die Prüfung <b class="code">true</b> lautet - fügen Sie die Zahl <b class="code">num</b> zum Ergebnis <b class="code">res</b> hinzu.
+        </p>
+        <pre class="brush: javascript">
+res += num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Wie sollte also meine endgültige Lösung aussehen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur Ihren Code in einen Funktionsausdruck verpacken und alle vorherigen Hinweise verbinden.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(text: string): number {
+    
+    let res = 0;
+    for (let str of text.split(" ")){
+        let num = Number(str);
+        if (!isNaN(num))
+            res += num
+    }   
+    return res
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Javascript-Held sein!</p>
+    </div>
+    <div class="answer">
+        <p>Klar, schnappen Sie es sich!</p>
+        <p>
+            Erstellen Sie aus dem anfänglichen Text ein Array, das nur aus Ziffernblöcken besteht, indem Sie einen regulären Ausdruck verwenden. Beginnen Sie dann mit <b class="code">0</b>, wandeln Sie jeden Block mit <b class="code">+</b> in eine Zahl um und ermitteln Sie die Summe.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(t: string): number {
+
+    return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
+}
+        </pre>
+        </div>
+        <p>
+            Diese Lösung kann in einer Zeile geschrieben werden, aber um sie eher schmal als breit zu machen, wird jede Methode in einer neuen Zeile geschrieben. Teilen Sie den Text auf, filtern Sie nur gültige Zahlen und reduzieren Sie sie mit der Summenfunktion, die jeden String in eine Zahl umwandelt. Die anonyme Funktion wird auch hier verwendet.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var sumNumbers = (test: string): number => test
+    .split(' ')
+    .filter(Number)
+    .reduce((a, i) => a + Number(i), 0);
+        </pre>
+        </div>
+        <p>Klicken Sie auf <b>Best Solutions</b> im Menü Mission und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!</p>
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
