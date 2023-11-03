@@ -1,0 +1,27 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p>
+    In einem gegebenen Text müssen Sie die Zahlen summieren und dabei alle Ziffern ausschließen, die Teil eines Wortes sind.
+</p>
+
+<p>Der Text besteht aus Zahlen, Leerzeichen und Buchstaben aus dem englischen Alphabet.</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Eine Zeichenkette <span>{% if is_js %}(string){% else %}(str){% endif %}</span>.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Eine Ganzzahl <span>{% if is_js %}(number){% else %}(int){% endif %}</span>. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
