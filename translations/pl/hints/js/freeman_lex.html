@@ -1,0 +1,147 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Chodzi o to, aby podzielić podany tekst za pomocą białych znaków na słowa i zamienić każde z nich na liczbę. Jeśli konwersja jest poprawna - proszę dodać tę liczbę do wyniku.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę zadeklarować nową zmienną <b class="code">res</b> z wartością początkową <b class="code">0</b>. Jest to suma poprawnych liczb, którą powinna zwrócić funkcja.
+        </p>
+        <pre class="brush: javascript">
+let res = 0;
+...
+return res
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, co robić dalej?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">split()</a> z argumentem whitespace, aby podzielić tekst na słowa i <a target="_blank" href="https://www.w3schools.com/js/js_loop_forof.asp">for/of loop</a>, aby iterować po tych słowach jako wartościach zmiennej <b class="code">str</b>.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){...}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Proszę o małą podpowiedź.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Ma Pan słowa jako ciąg znaków. Teraz wewnątrz pętli należy przekonwertować każde z nich na liczbę za pomocą metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_number.asp">Number()</a> i przypisać do nowej zmiennej <b class="code">num</b>.
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){
+    let num = Number(str);
+    ...
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak sprawdzić, czy konwersja jest poprawna?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Oto trochę skomplikowana logika. Pomyślmy od odwrotnej strony. <b class="code">num</b> musi być liczbą, więc możemy powiedzieć, że NIE może to być <b class="code">NaN</b> (nie liczba). Aby dokonać takiego sprawdzenia, potrzebna jest metoda <a target="_blank" href="https://www.w3schools.com/jsref/jsref_isnan.asp">isNaN()</a> (zwracająca <b class="code">true</b> jeśli wartość nie jest liczbą) i operator <b class="code">!</b> (not) do odwrócenia wyniku metody.
+        </p>
+        <pre class="brush: javascript">
+if (!isNaN(num))
+    ...
+        </pre>
+        <p>
+            Jeśli wynikiem sprawdzenia jest <b class="code">true</b> - proszę dodać liczbę <b class="code">num</b> do wyniku <b class="code">res</b>.
+        </p>
+        <pre class="brush: javascript">
+res += num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcyjne i połączyć wszystkie poprzednie wskazówki.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(text: string): number {
+    
+    let res = 0;
+    for (let str of text.split(" ")){
+        let num = Number(str);
+        if (!isNaN(num))
+            res += num
+    }   
+    return res
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 bohaterem Javascript!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę pobrać!</p>
+        <p>
+            Proszę utworzyć tablicę z początkowego tekstu zawierającego tylko bloki cyfr za pomocą wyrażenia regularnego, a następnie rozpocząć od <b class="code">0</b>, przekonwertować każdy blok na liczbę za pomocą <b class="code">+</b> i znaleźć sumę.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(t: string): number {
+
+    return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
+}
+        </pre>
+        </div>
+        <p>
+            To rozwiązanie może być zapisane w jednej linii, ale aby było bardziej wąskie niż szerokie, każda metoda jest zapisywana od nowej linii. Proszę podzielić tekst, odfiltrować tylko prawidłowe liczby i zredukować je za pomocą funkcji sum, konwertującej każdy ciąg na liczbę. Funkcja anonimowa jest również używana tutaj.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var sumNumbers = (test: string): number => test
+    .split(' ')
+    .filter(Number)
+    .reduce((a, i) => a + Number(i), 0);
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>

@@ -1,5 +1,5 @@
 <!-- Describe task in general -->
-
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 <p>
     In a given text you need to sum the numbers while excluding any digits that form part of a word.
 </p>
@@ -12,18 +12,18 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> A string.
+    <strong>Input:</strong> A string <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span>.
 </p>
 
 <p>
-    <strong>Output: </strong> An int. 
+    <strong>Output:</strong> An integer <span translate="no">{% if is_js %}(number){% else %}(int){% endif %}</span>. 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>

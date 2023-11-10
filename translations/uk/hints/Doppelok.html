@@ -1,118 +1,148 @@
 <body data-author="Doppelok">
 <div class="question-answer">
     <div class="question">
-        Я не знаю, як розпочати вирішення цієї місії
+        <p>
+            Я не знаю, як розпочати вирішення цієї місії.
+        </p>
     </div>
     <div class="answer">
-        Задача в тому, щоб знайти в рядку елементи які містять тільки цифри, без літер, та повернути суму цих чисел.
+        <p>
+            Задача в тому, щоб знайти в рядку елементи які містять тільки цифри, без літер, та повернути суму цих чисел.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Мені потрібна допомога, щоб продовжити місію
+        <p>
+            Мені потрібна допомога, щоб продовжити місію.
+        </p>
     </div>
     <div class="answer">
-        Для вирішення місії використаємо генератор списку.
-        Тобі буде корисно прочитати трохи інформації про:
-        <a href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>генератор списку</a>
-        (<a href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>приклад</a> ),
-        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a>
-        (<a href='https://www.w3schools.com/python/ref_string_split.asp'>приклад</a> ), та
-        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a>
-        (<a href='https://www.w3schools.com/python/ref_string_isdigit.asp'>приклад</a> ),
-        <a href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>,
-        (<a href='https://www.w3schools.com/python/ref_func_int.asp'>приклад</a> ).
+        <p>
+            Для вирішення місії використаємо генератор списку. Тобі буде корисно прочитати трохи інформації про: <a target="_blank" href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>генератор списку</a> (<a target="_blank" href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>приклад</a>), <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_split.asp'>приклад</a>), та <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_isdigit.asp'>приклад</a>), <a target="_blank" href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>, (<a target="_blank" href='https://www.w3schools.com/python/ref_func_int.asp'>приклад</a>).
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Потрібна допомога!
+        <p>
+            Потрібна допомога!
+        </p>
     </div>
     <div class="answer">
-        Отже, розпишемо що саме має бути в нашому виразі генератора списку. В циклі for ми будемо ітеруватись по
-        розділеному на список рядку за допомогою методу str.split().
+        <p>
+            Отже, розпишемо що саме має бути в нашому виразі генератора списку. В циклі <b class="code">for</b> ми будемо ітеруватись по розділеному на список рядку за допомогою методу <b class="code">str.split()</b>.
+        </p>
         <pre class="brush: python">
 result = []  # Тут буде зберігатись наш результат роботи циклу
 for i in text.split():
-        # abracadabra
+    ...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Я вже не знаю що робити. Мені потрібна маленька підказка.
+        <p>
+            Я вже не знаю що робити. Мені потрібна маленька підказка.
+        </p>
     </div>
     <div class="answer">
-        Тобі потрібно додати перевірку на те чи являється елемент рядка числом, чи ні.
+        <p>
+            Тобі потрібно додати перевірку на те чи являється елемент рядка числом, чи ні.
+        </p>
         <pre class="brush: python">
 result = []
 for i in text.split():
-        if i.isdigit():
-            # abracadabra
+    if i.isdigit():
+        ...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Нічого не працює. SOS
+        <p>
+            Нічого не працює. SOS
+        </p>
     </div>
     <div class="answer">
-        Отже, якщо перевірка виконалась - ми додаємо елемент рядку до списку, попередньо його конвертуючи у тип
-        даних "ціле число" за допомогою функції int().
+        <p>
+            Отже, якщо перевірка виконалась - ми додаємо елемент рядку до списку, попередньо його конвертуючи у тип даних "ціле число" за допомогою функції <b class="code">int()</b>.
+        </p>
         <pre class="brush: python">
 result = []
 for i in text.split():
-        if i.isdigit():
-            result.append(int(i))
+    if i.isdigit():
+        result.append(int(i))
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Не хочу здаватись, допоможи!
+        <p>
+            Не хочу здаватись, допоможи!
+        </p>
     </div>
     <div class="answer">
-        Тобі залишилось обгорнути код у вираз функції та повернути результат. Можна просто у виразі "return" передати до функції
-        sum() нашу змінну result.
+        <p>
+            Тобі залишилось обгорнути код у вираз функції та повернути результат. Можна просто у виразі <b class="code">return</b> передати до функції <b class="code">sum()</b> нашу змінну <b class="code">result</b>.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = []
     for i in text.split():
-            if i.isdigit():
-                result.append(int(i))
+        if i.isdigit():
+            result.append(int(i))
     return sum(result)
         </pre>
-        Або ж можна відійти від змінної та обгорнути це у вираз генератору списків.
+        </div>
+        <p>
+            Або ж можна відійти від змінної та обгорнути це у вираз генератору списків.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
     return sum(int(i) for i in text.split() if i.isdigit())
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+        <p>
+            Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+        </p>
     </div>
     <div class="answer">
-        Добре, добре! Оце настрій!=)
-        Ось рішення з використанням функції sum() та замість генератора списку використовують функцію map() та filter().
-        У функції filter(), за допомогою методу str.isdigit() перевіряємо на те чи елемент рядку число.
+        <p>
+            Добре, добре! Оце настрій!=)</br>
+            Ось рішення з використанням функції <b class="code">sum()</b> та замість генератора списку використовують функцію <b class="code">map()</b> та <b class="code">filter()</b>. У функції <b class="code">filter()</b>, за допомогою методу <b class="code">str.isdigit()</b> перевіряємо на те чи елемент рядку число.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     return sum(map(int, filter(str.isdigit, text.split())))
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Я хочу більше!
+        <p>
+            Я хочу більше!
+        </p>
     </div>
     <div class="answer">
-        Замість умови if ми можемо використати вираз "try/ except". Якщо конвертувати рядок у число (int(i)) не вдається,
-        то ми просто пропускаємо цей крок та переходимо до іншого елементу рядку.
+        <p>
+            Замість умови <b class="code">if</b> ми можемо використати вираз <b class="code">try/except</b>. Якщо конвертувати рядок у число <b class="code">int(i)</b> не вдається, то ми просто пропускаємо цей крок та переходимо до іншого елементу рядку.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = []
     for i in text.split():
         try:
@@ -121,9 +151,14 @@ def sum_numbers(text: str) -> int:
             pass
     return sum(result)
         </pre>
-        Або ж можна модифікувати код одразу з використанням змінної типу int, без списку.
+        </div>
+        <p>
+            Або ж можна модифікувати код одразу з використанням змінної типу <b class="code">int</b>, без списку.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = 0
     for i in text.split():
         try:
@@ -132,8 +167,7 @@ def sum_numbers(text: str) -> int:
             pass
     return result
         </pre>
+        </div>
     </div>
 </div>
-
-
 </body>

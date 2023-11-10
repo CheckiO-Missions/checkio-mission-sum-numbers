@@ -1,0 +1,26 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p>
+    Dans un texte donné, vous devez additionner les nombres en excluant les chiffres qui font partie d'un mot.
+</p>
+
+<p>Le texte est composé de chiffres, d'espaces et de lettres de l'alphabet anglais.</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Une <span>chaîne de caractères</span> <span>(string)</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> Un {% if is_js %}<span>nombre</span> <span>(number)</span>{% else %}<span>entier</span> <span>(integer)</span>{% endif %}. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Exemples:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>

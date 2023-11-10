@@ -88,6 +88,7 @@ res += num
             Тобі просто потрібно обгорнути свій код у вираз функції та об'єднати всі попередні підказки.
         </p>
         <p>Ось повне рішення:</p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function sumNumbers(text: string): number {
     
@@ -100,6 +101,7 @@ function sumNumbers(text: string): number {
     return res
 }
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -112,21 +114,25 @@ function sumNumbers(text: string): number {
         <p>
             Створи масив лише з цифровими блоками з початкового тексту за допомогою регулярного виразу, тоді почни з <b class="code">0</b>, конвертуй кожен блок у число з допомогою <b class="code">+</b> і знайди їх суму.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function sumNumbers(t: string): number {
 
     return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
 }
         </pre>
+        </div>
         <p>
             Це рішення може бути записане в одному рядку, але щоб зробити його більш вузьким, ніж широким, кожен метод записується з нового рядка. Розділи текст, фільтруй лише коректні числа та зведи їх за допомогою функції суми, перетворюючи кожен рядок на число. Тут також використовується анонімна функція.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var sumNumbers = (test: string): number => test
     .split(' ')
     .filter(Number)
     .reduce((a, i) => a + Number(i), 0);
         </pre>
+        </div>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>

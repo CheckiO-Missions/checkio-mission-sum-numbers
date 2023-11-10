@@ -1,120 +1,148 @@
 <body data-author="Doppelok">
 <div class="question-answer">
     <div class="question">
-        I don't know how to start solving this mission
+        <p>
+            I don't know how to start solving this mission.
+        </p>
     </div>
     <div class="answer">
-        The task is to find elements in the line that contain only numbers, without letters, and return
-        the sum of these numbers.
+        <p>
+            The task is to find elements in the line that contain only numbers, without letters, and return the sum of these numbers.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I need help to continue the mission
+        <p>
+            I need help to continue the mission.
+        </p>
     </div>
     <div class="answer">
-        To solve the mission, we will use the list generator.
-         It will be useful for you to read some information about:
-        <a href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a>
-        (<a href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a> ),
-        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a>
-        (<a href='https://www.w3schools.com/python/ref_string_split.asp'>example</a> ), and
-        <a href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a>
-        (<a href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a> ),
-        <a href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>,
-        (<a href='https://www.w3schools.com/python/ref_func_int.asp'>example</a> ).
+        <p>
+            To solve the mission, we will use the list generator. It will be useful for you to read some information about: <a target="_blank" href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a> (<a target="_blank" href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_split.asp'>example</a>), and <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a>), <a target="_blank" href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>, (<a target="_blank" href='https://www.w3schools.com/python/ref_func_int.asp'>example</a>).
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Need help!
+        <p>
+            Need help!
+        </p>
     </div>
     <div class="answer">
-        So, let's write down what exactly should be in our list generator expression. In the for loop,
-        we will iterate over the string split into a list using the str.split() method.
+        <p>
+            So, let's write down what exactly should be in our list generator expression. In the <b class="code">for</b> loop, we will iterate over the string split into a list using the <b class="code">str.split()</b> method.
+        </p>
         <pre class="brush: python">
 result = []  # This is where our result of the cycle will be stored
 for i in text.split():
-        # abracadabra
+    ...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I don't know what to do anymore. I need a little hint.
+        <p>
+            I don't know what to do anymore. I need a little hint.
+        </p>
     </div>
     <div class="answer">
-        You need to add a check to see if the string element is a number or not.
+        <p>
+            You need to add a check to see if the string element is a number or not.
+        </p>
         <pre class="brush: python">
 result = []
 for i in text.split():
-        if i.isdigit():
-            # abracadabra
+    if i.isdigit():
+        ...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Nothing works. SOS
+        <p>
+            Nothing works. SOS
+        </p>
     </div>
     <div class="answer">
-        So, if the check is successful, we add the string element to the list, having previously converted it to the
-        "integer" data type using the int() function.
+        <p>
+            So, if the check is successful, we add the string element to the list, having previously converted it to the "integer" data type using the <b class="code">int()</b> function.
+        </p>
         <pre class="brush: python">
 result = []
 for i in text.split():
-        if i.isdigit():
-            result.append(int(i))
+    if i.isdigit():
+        result.append(int(i))
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I don't want to give up, help!
+        <p>
+            I don't want to give up, help!
+        </p>
     </div>
     <div class="answer">
-        All you have to do is wrap the code in a function expression and return the result. You can simply add our
-        "result" variable to the sum() function in the "return" expression.
+        <p>
+            All you have to do is wrap the code in a function expression and return the result. You can simply add our <b class="code">result</b> variable to the <b class="code">sum()</b> function in the <b class="code">return</b> expression.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = []
     for i in text.split():
-            if i.isdigit():
-                result.append(int(i))
+        if i.isdigit():
+            result.append(int(i))
     return sum(result)
         </pre>
-        Or you can move away from the variable
-        and wrap it in a list comprehension.
+        </div>
+        <p>
+            Or you can move away from the variable and wrap it in a list comprehension.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
 
     return sum(int(i) for i in text.split() if i.isdigit())
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+        <p>
+            I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+        </p>
     </div>
     <div class="answer">
-        Okay, okay! That's the spirit!=)
-        Here is a solution using the sum() function and using the map() and filter() functions instead of the list generator.
-        In the filter() function, using the str.isdigit() method, we check whether the string element is a number.
+        <p>
+            Okay, okay! That's the spirit!=)</br>
+            Here is a solution using the <b class="code">sum()</b> function and using the <b class="code">map()</b> and <b class="code">filter()</b> functions instead of the list generator. In the <b class="code">filter()</b> function, using the <b class="code">str.isdigit()</b> method, we check whether the string element is a number.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     return sum(map(int, filter(str.isdigit, text.split())))
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I want more!
+        <p>
+            I want more!
+        </p>
     </div>
     <div class="answer">
-        Instead of an if condition, we can use a "try/except" expression. If converting a string to a number (int(i))
-        fails, we simply skip this step and move on to another element of the string.
+        <p>
+            Instead of an <b class="code">if</b> condition, we can use a <b class="code">try/except</b> expression. If converting a string to a number <b class="code">int(i)</b> fails, we simply skip this step and move on to another element of the string.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = []
     for i in text.split():
         try:
@@ -123,10 +151,14 @@ def sum_numbers(text: str) -> int:
             pass
     return sum(result)
         </pre>
-        </pre>
-        Or you can modify the code immediately using an int variable, without a list.
+        </div>
+        <p>
+            Or you can modify the code immediately using an <b class="code">int</b> variable, without a list.
+        </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def sum_numbers(text: str) -> int:
+
     result = 0
     for i in text.split():
         try:
@@ -134,8 +166,8 @@ def sum_numbers(text: str) -> int:
         except:
             pass
     return result
+        </pre>
+        </div>
     </div>
 </div>
-
-
 </body>

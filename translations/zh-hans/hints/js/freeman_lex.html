@@ -1,0 +1,147 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这个任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 我们的想法是将给定的文本按空白处分割成单词，并将每个单词转换成数字。如果转换正确--在结果中加入这个数字。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从什么开始呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            声明一个新的变量<b class="code">res</b> ，其初始值为<b class="code">0</b> 。这是你的正确数字之和，你的函数应该返回。
+        </p>
+        <pre class="brush: javascript">
+let res = 0;
+...
+return res
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            好的，接下来该怎么做？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            使用带有空白参数的<a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">split()</a> 方法，将文本按单词分割，然后<a target="_blank" href="https://www.w3schools.com/js/js_loop_forof.asp">for/of loop</a> ，将这些单词作为<b class="code">str</b> 变量的值进行迭代。
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){...}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要一个小提示。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你有作为字符串的单词。现在在循环中，你需要用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_number.asp">Number()</a> 方法将每个字转换为数字，并将其分配给一个新的变量<b class="code">num</b> 。
+        </p>
+        <pre class="brush: javascript">
+for (let str of text.split(" ")){
+    let num = Number(str);
+    ...
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            如何检查，转换是否正确？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            这里有一个有点棘手的逻辑。让我们反过来想想。<b class="code">num</b> 必须是一个数字，所以我们可以说，它不可能是<b class="code">NaN</b> （不是一个数字）。为了进行这样的检查，你需要<a target="_blank" href="https://www.w3schools.com/jsref/jsref_isnan.asp">isNaN()</a> 方法（如果值不是数字，则返回<b class="code">true</b> ）和<b class="code">!</b> （不是）操作符来反转方法结果。
+        </p>
+        <pre class="brush: javascript">
+if (!isNaN(num))
+    ...
+        </pre>
+        <p>
+            如果检查结果是<b class="code">true</b> - 将数字<b class="code">num</b> 添加到结果<b class="code">res</b> 。
+        </p>
+        <pre class="brush: javascript">
+res += num
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            你只需要将你的代码包装成函数表达式，并加入之前的所有提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(text: string): number {
+    
+    let res = 0;
+    for (let str of text.split(" ")){
+        let num = Number(str);
+        if (!isNaN(num))
+            res += num
+    }   
+    return res
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Javascript英雄!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            用正则表达式从最初的文本中创建一个只有数字块的数组，然后从<b class="code">0</b> ，用<b class="code">+</b> ，将每个数字块转换成数字，然后求和。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function sumNumbers(t: string): number {
+
+    return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
+}
+        </pre>
+        </div>
+        <p>
+            这个解决方案可以写在一行中，但是为了使它更窄更宽，每个方法都从新的一行写起。分割文本，只过滤有效的数字，用sum函数将每个字符串转换为数字来减少它们。这里也使用了匿名函数。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var sumNumbers = (test: string): number => test
+    .split(' ')
+    .filter(Number)
+    .reduce((a, i) => a + Number(i), 0);
+        </pre>
+        </div>
+        <p>点击任务菜单上的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切工作都很顺利!</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>

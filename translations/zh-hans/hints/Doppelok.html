@@ -1,0 +1,173 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不知道如何开始解决这个任务。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            任务是在行中找到只包含数字，没有字母的元素，并返回这些数字的总和。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要帮助来继续完成任务。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            为了解决这个任务，我们将使用列表生成器。阅读一些关于：<a target="_blank" href='https://docs.python.org/3.10/glossary.html#term-list-comprehension'>list comprehension</a> (<a target="_blank" href='https://www.w3schools.com/python/gloss_python_list_comprehension.asp'>example</a>),<a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.split()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_split.asp'>example</a>), 和<a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html'>str.isdigit()</a> (<a target="_blank" href='https://www.w3schools.com/python/ref_string_isdigit.asp'>example</a>),<a target="_blank" href='https://docs.python.org/3.10/library/functions.html#int'>int()</a>, (<a target="_blank" href='https://www.w3schools.com/python/ref_func_int.asp'>example</a>)的信息将对你有帮助。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            需要帮助!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            所以，让我们写下我们的列表生成器表达式中到底应该有什么。在<b class="code">for</b> 循环中，我们将使用<b class="code">str.split()</b> 方法对分割成列表的字符串进行迭代。
+        </p>
+        <pre class="brush: python">
+result = []  # This is where our result of the cycle will be stored
+for i in text.split():
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不知道该怎么做了。我需要一个小提示。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你需要添加一个检查，看看字符串元素是否是数字。
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            没有任何作用。拯救
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            因此，如果检查成功，我们就把字符串元素添加到列表中，之前已经用<b class="code">int()</b> 函数把它转换为 "整数 "数据类型。
+        </p>
+        <pre class="brush: python">
+result = []
+for i in text.split():
+    if i.isdigit():
+        result.append(int(i))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不想放弃，请帮助我!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你所要做的就是将代码包裹在一个函数表达式中，并返回结果。你可以简单地将我们的<b class="code">result</b> 变量添加到<b class="code">return</b> 表达式中的<b class="code">sum()</b> 函数中。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        if i.isdigit():
+            result.append(int(i))
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            或者你可以远离变量，把它包在一个列表理解中。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(int(i) for i in text.split() if i.isdigit())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我想成为最好的程序员中的最好的程序员!!!告诉我更多的解决方案!!!11!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            好的，好的!这就是精神！=)</br>
+            下面是一个使用<b class="code">sum()</b> 函数的解决方案，并使用<b class="code">map()</b> 和<b class="code">filter()</b> 函数来代替列表生成器。在<b class="code">filter()</b> 函数中，使用<b class="code">str.isdigit()</b> 方法，我们检查字符串元素是否是一个数字。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    return sum(map(int, filter(str.isdigit, text.split())))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我想要更多!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            我们可以使用一个<b class="code">if</b> 条件，而不是一个<b class="code">try/except</b> 表达式。如果将一个字符串转换为数字<b class="code">int(i)</b> ，就会失败，我们只需跳过这一步，继续处理字符串的另一个元素。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = []
+    for i in text.split():
+        try:
+            result.append(int(i))
+        except:
+            pass
+    return sum(result)
+        </pre>
+        </div>
+        <p>
+            或者你可以使用一个<b class="code">int</b> 变量立即修改代码，不使用列表。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def sum_numbers(text: str) -> int:
+
+    result = 0
+    for i in text.split():
+        try:
+            result += int(i)
+        except:
+            pass
+    return result
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
